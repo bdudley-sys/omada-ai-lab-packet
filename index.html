@@ -3,128 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omada Health | AI Leadership Lab Master Packet</title>
+    <title>Omada Health | AI Leadership Lab Master Workbook</title>
     <style>
         :root {
             --omada-navy: #002B49; --omada-teal: #00A7B5; --omada-blue: #0076CE;
             --bg-light: #F3F4F6; --white: #FFFFFF; --border: #E5E7EB;
             --text-main: #1F2937; --urgent: #EF4444; --today: #F59E0B;
         }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-main); background: var(--bg-light); line-height: 1.5; margin: 0; padding: 0; }
-        header { background: var(--omada-navy); color: white; padding: 2.5rem 1rem; text-align: center; border-bottom: 6px solid var(--omada-teal); }
-        .container { max-width: 1000px; margin: -30px auto 50px; padding: 0 20px; }
-        .lab-section { background: var(--white); margin-bottom: 3.5rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .section-header { color: white; padding: 1.2rem 2rem; font-size: 1.5rem; font-weight: bold; background: var(--omada-navy); }
-        .content-padding { padding: 2rem; }
-        .mental-model { background: #F0FDFA; border-left: 5px solid var(--omada-teal); padding: 1.2rem; margin: 1.5rem 0; font-style: italic; }
-        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
-        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
-        th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-main); background: var(--bg-light); line-height: 1.6; margin: 0; padding: 0; }
+        header { background: var(--omada-navy); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 6px solid var(--omada-teal); }
+        .container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; }
+        .lab-section { background: var(--white); margin-bottom: 4rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .section-header { color: white; padding: 1.5rem 2rem; font-size: 1.8rem; font-weight: bold; background: var(--omada-navy); display: flex; justify-content: space-between; align-items: center; }
+        .content-padding { padding: 2.5rem; }
+        h2, h3 { color: var(--omada-navy); border-bottom: 2px solid var(--omada-teal); padding-bottom: 5px; margin-top: 2rem; }
+        .mental-model { background: #F0FDFA; border-left: 6px solid var(--omada-teal); padding: 1.5rem; margin: 1.5rem 0; font-style: italic; font-size: 1.1rem; }
+        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin: 5px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); }
         th { background: #F9FAFB; color: var(--omada-navy); }
-        .card { border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; background: #fff; margin-bottom: 1rem; }
-        .prompt-box { background: #2d3436; color: #dfe6e9; padding: 1.2rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; margin: 1rem 0; white-space: pre-wrap; }
-        button { padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
-        .reveal-box { display: none; margin-top: 1rem; padding: 1rem; border-radius: 6px; font-size: 0.9rem; background: #ECFEFF; border-left: 4px solid var(--omada-teal); }
-        textarea { width: 100%; height: 80px; margin-top: 10px; border: 1px solid var(--border); border-radius: 4px; padding: 10px; font-family: inherit; }
-        footer { text-align: center; padding: 3rem; color: #6B7280; font-size: 0.85rem; }
-        .quote { border-left: 4px solid var(--omada-blue); padding: 1rem; margin: 1rem 0; background: #f8fafc; font-size: 0.9rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .card { border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; background: #fff; position: relative; }
+        .prompt-box { background: #2d3436; color: #dfe6e9; padding: 1.5rem; border-radius: 6px; font-family: monospace; font-size: 0.9rem; margin: 1.5rem 0; white-space: pre-wrap; border-left: 5px solid var(--omada-blue); }
+        .quote { border-left: 5px solid var(--omada-blue); padding: 1.2rem; margin: 1.5rem 0; background: #f8fafc; font-size: 0.95rem; line-height: 1.6; }
+        button { padding: 10px 20px; border-radius: 6px; border: 1px solid var(--border); background: white; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        button:hover { background: #f9fafb; border-color: var(--omada-teal); }
+        .reveal-box { display: none; margin-top: 1rem; padding: 1rem; border-radius: 6px; background: #ECFEFF; border-left: 5px solid var(--omada-teal); font-size: 0.95rem; }
+        textarea { width: 100%; height: 100px; margin-top: 10px; border: 1px solid var(--border); border-radius: 6px; padding: 15px; font-family: inherit; font-size: 1rem; }
+        .flag-red { border-left: 5px solid var(--urgent); background: #fef2f2; }
+        footer { text-align: center; padding: 4rem; color: #6B7280; font-size: 0.9rem; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>AI Leadership Lab</h1>
-    <p>Omada Health • AI amplifies. Humans decide.</p>
+    <h1>Omada AI Leadership Lab</h1>
+    <p>AI amplifies. Humans decide. • 2026 Participant Master Workbook</p>
 </header>
 
 <div class="container">
-    <div class="card" style="text-align:center;">
-        <h2>The Core Principle</h2>
-        <p>AI compresses drafting and accelerates analysis, but you own the judgment, the credibility, and the decision[cite: 249, 387].</p>
-    </div>
 
     <section class="lab-section">
-        <div class="section-header" style="background: var(--omada-teal);">Lab 1: AI as Assistant (Inbox)</div>
-        <div class="content-padding">
-            <div class="mental-model">"Treat AI like a bright, eager intern: Fast and confident, but weak on history, context, and consequences" [cite: 259-260].</div>
-            
-            <h3>Table Roles </h3>
-            <table>
-                <tr><th>Prompter</th><td>Types/steers AI.</td><th>Reviewer</th><td>Checks if task is answered.</td></tr>
-                <tr><th>Risk Checker</th><td>Watches for drift/tone.</td><th>Reporter</th><td>Captures takeaways.</td></tr>
-            </table>
-
-            <h3>The CTC Framework </h3>
-            <p><strong>Context:</strong> Who is AI? Who is audience? | <strong>Task:</strong> What exactly to do? | <strong>Constraints:</strong> Red lines?</p>
-
-            <h3>The Inbox & Context Cards [cite: 270-281]</h3>
-            <div class="card"><strong>Msg 1: Manager</strong> - Status on new workflow by 4:00 PM. <button onclick="toggle('c1')">Context</button><div id="c1" class="reveal-box">Workflow is broken; manager doesn't know about the workaround.</div></div>
-            <div class="card"><strong>Msg 3: HR</strong> - Jordan's transfer request. <button onclick="toggle('c2')">Context</button><div id="c2" class="reveal-box">Jordan's friend Alex is on your team and doesn't know yet.</div></div>
-            <div class="card"><strong>Msg 5: Casey</strong> - 1 week with no answer; ready to escalate.</div>
+        <div class="section-header" style="background: var(--omada-teal);">
+            <span>Lab 1: AI as Assistant</span>
+            <span class="tag" style="background: rgba(255,255,255,0.2);">75 Minutes</span>
         </div>
-    </section>
-
-    <section class="lab-section">
-        <div class="section-header" style="background: var(--omada-blue);">Lab 2: AI as Analyst (Data)</div>
         <div class="content-padding">
-            <div class="mental-model">"Treat AI like a smart, slightly careless junior analyst" [cite: 14-15].</div>
+            <div class="mental-model">"Treat AI like a bright, eager intern: Fast and confident, but weak on history, context, and consequences" [cite: 118-119].</div>
             
-            <h3>The Boundaries </h3>
-            <ul>
-                <li><strong>Patterns are not proof:</strong> Do not claim causation[cite: 23].</li>
-                <li><strong>Interesting is not enough:</strong> Must connect to a decision[cite: 24].</li>
-                <li><strong>Explainability:</strong> Explain it in 2 sentences or don't use it[cite: 25].</li>
-            </ul>
+            <h3>Ground Rules [cite: 115]</h3>
+            <div class="grid">
+                <div class="card"><strong>You Own:</strong> Tone, judgment, commitments, and what gets sent.</div>
+                <div class="card"><strong>AI Owns:</strong> Speed, first drafts, sorting, and structure.</div>
+                <div class="card"><strong>Never:</strong> Use confidential names or sensitive details.</div>
+            </div>
 
-            <h3>Data Reference </h3>
-            <table>
-                <tr><td>snacksbysexage</td><td>Daily snack distribution.</td><td>mealssnacksbyraceage</td><td>Race-based patterns.</td></tr>
-                <tr><td>mealssnacksbyincomeage</td><td>Income-based patterns.</td><td>obesityindividuallevel</td><td>Individual habits.</td></tr>
-            </table>
+            <h3>The Inbox </h3>
+            <div class="grid">
+                <div class="card"><strong>1. Manager:</strong> Update on new workflow by 4:00 PM today.</div>
+                <div class="card"><strong>2. Peer Supervisor:</strong> Needs coverage for 3rd time this month.</div>
+                <div class="card"><strong>3. HR Business Partner:</strong> Jordan's transfer request (Due Friday).</div>
+                <div class="card"><strong>4. Partner Team:</strong> A rare "thank you" from a territorial supervisor.</div>
+                <div class="card"><strong>5. Casey (Team):</strong> Frustrated, ready to escalate over schedule delay.</div>
+            </div>
 
-            <div class="card" style="border-left: 5px solid var(--urgent);">
-                <strong>Equity Reframe:</strong> Race/income are social categories reflecting structural infrastructure, not inherent group deficits.
+            <button onclick="toggle('context1')">Reveal Hidden Context Cards</button>
+            <div id="context1" class="reveal-box">
+                <p><strong>Workflow:</strong> It's broken. You're using a manual workaround your manager doesn't know exists[cite: 129].</p>
+                <p><strong>Jordan:</strong> Their friend Alex is on the team and doesn't know about the transfer yet[cite: 130].</p>
+                <p><strong>Casey:</strong> This request has sat for a week. They are done waiting[cite: 132].</p>
+            </div>
+
+            <h3>The Prompt Framework (CTC) [cite: 124]</h3>
+            <div class="prompt-box">
+Context: [Who is AI? Who is audience?]
+Task: [What exactly do you want?]
+Constraints: [Tone? Length? Red lines?]
             </div>
         </div>
     </section>
 
     <section class="lab-section">
-        <div class="section-header" style="background: var(--omada-navy);">Lab 3: AI as Advisor (School Lunch)</div>
+        <div class="section-header" style="background: var(--omada-blue);">
+            <span>Lab 2: AI as Analyst</span>
+            <span class="tag" style="background: rgba(255,255,255,0.2);">75 Minutes</span>
+        </div>
         <div class="content-padding">
-            <div class="mental-model">"AI is the advisor. You are the decision-maker"[cite: 144].</div>
-            
-            <h3>Scenario Details </h3>
+            <div class="mental-model">"Treat AI like a smart, slightly careless junior analyst: Good at scanning files, weak at recognizing overclaiming" [cite: 260-261].</div>
+
+            <h3>The Three Boundaries [cite: 269-271]</h3>
+            <ol>
+                <li><strong>Patterns are not proof:</strong> Do not claim causation from correlation.</li>
+                <li><strong>Interesting is not enough:</strong> Connect the pattern to a real decision.</li>
+                <li><strong>Explainability matters:</strong> Explain the chart in 2 sentences or don't use it.</li>
+            </ol>
+
+            <h3>Dataset Overview [cite: 265]</h3>
+            <table>
+                <tr><th>Sheet</th><th>Contents</th></tr>
+                <tr><td>snacksbysexage</td><td>Daily snack counts distribution.</td></tr>
+                <tr><td>mealssnacksbyraceage</td><td>Meal intensity by race and age group.</td></tr>
+                <tr><td>mealssnacksbyincomeage</td><td>Meal intensity by poverty/income band.</td></tr>
+                <tr><td>obesityindividuallevel</td><td>Gender, age, habits, and obesity category.</td></tr>
+            </table>
+
+            <h3>Question Menu </h3>
+            <p>Pick one starter to analyze first:</p>
             <ul>
-                <li><strong>Students:</strong> 4,000 (K-8). <strong>Eligibility:</strong> 42% Free/Reduced[cite: 157].</li>
-                <li><strong>Budget:</strong> $3.45 cost vs $3.10 price. Price hikes drop participation by 8% [cite: 159-160].</li>
+                <li><strong>Pattern:</strong> Do people who eat more meals snack less, or both? [cite: 279]</li>
+                <li><strong>Equity:</strong> Do snacking patterns differ more by race or income? [cite: 285]</li>
+                <li><strong>Interaction:</strong> Does activity change the link between snacking and obesity? [cite: 288]</li>
+                <li><strong>Fitness:</strong> Which single chart would you use to brief a senior leader? [cite: 292]</li>
             </ul>
 
-            <h3>Stakeholder Voices [cite: 170-176]</h3>
-            <div class="quote"><strong>Parent:</strong> "My kids are embarrassed to get free lunch... she skips lunch some days"[cite: 170].</div>
-            <div class="quote"><strong>Principal:</strong> "By 1pm, kids who don't eat are melting down. This is about focus"[cite: 175].</div>
-            <div class="quote"><strong>Staff:</strong> "Complexity will make us lose people; turnover is already 35%"[cite: 174, 178].</div>
+            <div class="card flag-red">
+                <strong>Analytical Frame:</strong> Race and income are social categories reflecting infrastructure and policy—not inherent group characteristics. If AI frames it as a "deficit," stop and reframe[cite: 258].
+            </div>
         </div>
     </section>
 
-    <section class="lab-section" style="border: 3px solid var(--omada-navy);">
-        <div class="section-header">Final Share-Out Board (Local Save)</div>
+    <section class="lab-section">
+        <div class="section-header" style="background: var(--omada-navy);">
+            <span>Lab 3: AI as Advisor</span>
+            <span class="tag" style="background: rgba(255,255,255,0.2);">60 Minutes</span>
+        </div>
         <div class="content-padding">
-            <p>Brief the leader as if you have two minutes[cite: 113].</p>
-            <label><strong>1. Our Insight [cite: 112]</strong></label><textarea id="i1"></textarea>
-            <label><strong>2. Why we trust it [cite: 115]</strong></label><textarea id="i2"></textarea>
-            <label><strong>3. The Caveat [cite: 121]</strong></label><textarea id="i3"></textarea>
-            <label><strong>4. Rejected AI output [cite: 124]</strong></label><textarea id="i4"></textarea>
-            <div style="text-align:center; margin-top:1.5rem;"><button onclick="saveWork()" style="background:var(--omada-teal); color:white; border:none; padding:12px 24px;">Save Pod Deliverable</button></div>
+            <div class="mental-model">"AI is the advisor. You are the decision-maker. Discernment is knowing when to reject it"[cite: 3, 103].</div>
+
+            <h3>School Lunch Scenario [cite: 16-19]</h3>
+            <table>
+                <tr><th>Metric</th><th>Value</th><th>Budget Realities</th></tr>
+                <tr><td>Students</td><td>4,000 (K-8)</td><td>$4.00 Fed Reimbursement</td></tr>
+                <tr><td>Current Participation</td><td>60%</td><td>$3.45 Cost per meal</td></tr>
+                <tr><td>Free/Reduced Eligibility</td><td>42%</td><td>$0.25 hike = 8% participation drop</td></tr>
+            </table>
+
+            <h3>Stakeholder Voices [cite: 29-35]</h3>
+            <div class="quote"><strong>Parent (Free/Reduced):</strong> "My kids tell me they're embarrassed... my daughter skips lunch because she doesn't want to be seen."</div>
+            <div class="quote"><strong>Principal:</strong> "By 1pm, kids who don't eat are melting down. This is about the whole afternoon."</div>
+            <div class="quote"><strong>Cafeteria Worker:</strong> "Fresh items mean more prep time. Complexity will make us lose people."</div>
+            <div class="quote"><strong>Superintendent:</strong> "Families are losing trust. A visible change signals that we care."</div>
+
+            <h3>Final 5-Bullet Deliverable [cite: 84]</h3>
+            <ul>
+                <li><strong>Bullets 1-2:</strong> Expected outcomes (Participation, cost, learning).</li>
+                <li><strong>Bullets 3-4:</strong> Human consequences (Dignity, stigma, staff morale).</li>
+                <li><strong>Bullet 5:</strong> The explicit tradeoff you accept and why.</li>
+            </ul>
         </div>
     </section>
 
-    <footer>Omada Health • AI Leadership Lab • 2026</footer>
+    <section class="lab-section" style="border: 4px solid var(--omada-navy);">
+        <div class="section-header" style="background: var(--omada-navy);">
+            <span>Share-Out Prep Board</span>
+            <span class="tag" style="background: var(--omada-teal);">Pod Deliverable</span>
+        </div>
+        <div class="content-padding">
+            <div class="card">
+                <label><strong>1. Our Insight (One sentence, plain language) [cite: 358-359]</strong></label>
+                <textarea id="i1" placeholder="Brief the leader as if you have two minutes..."></textarea>
+            </div>
+            <div class="card">
+                <label><strong>2. Why we trust it (Source, sample, limits checked) [cite: 361-362]</strong></label>
+                <textarea id="i2"></textarea>
+            </div>
+            <div class="card">
+                <label><strong>3. The Caveat (What could make it wrong) [cite: 367-368]</strong></label>
+                <textarea id="i3" placeholder="Name the risk before someone else does..."></textarea>
+            </div>
+            <div class="card">
+                <label><strong>4. One AI output we REJECTED and why </strong></label>
+                <textarea id="i4" placeholder="This rejection is evidence of your judgment..."></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn-teal" onclick="saveWork()" style="padding: 15px 30px; font-size: 1.1rem;">Save Pod Work</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>Omada Health • AI Leadership Lab • "AI amplifies. Humans decide."</footer>
 </div>
 
 <script>
     function toggle(id) { const el = document.getElementById(id); el.style.display = (el.style.display === 'block') ? 'none' : 'block'; }
-    function saveWork() { ['i1','i2','i3','i4'].forEach(id => localStorage.setItem(id, document.getElementById(id).value)); alert("Saved!"); }
-    window.onload = function() { ['i1','i2','i3','i4'].forEach(id => { if(localStorage.getItem(id)) document.getElementById(id).value = localStorage.getItem(id); }); }
+    function saveWork() {
+        ['i1','i2','i3','i4'].forEach(id => localStorage.setItem(id, document.getElementById(id).value));
+        alert("Pod work saved locally! Ready for share-out.");
+    }
+    window.onload = function() {
+        ['i1','i2','i3','i4'].forEach(id => { if(localStorage.getItem(id)) document.getElementById(id).value = localStorage.getItem(id); });
+    }
 </script>
+
 </body>
 </html>
